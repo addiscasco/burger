@@ -10,6 +10,9 @@ var burger = {
         orm.all('burgers', function (data) {
             cb(data);
         });
+    },
+    insert: function(newBurger){
+        orm.insert('burgers', 'burger_name', 'devoured', 'newBurger', '0' )
     }
 };
 
