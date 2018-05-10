@@ -1,11 +1,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require('path');
+var methodOverride = require('method-override');
+var app = express();
 
 var PORT = process.env.PORT || 8080;
 
-var app = express();
 var public = require('path').join(__dirname, '/public');
-var path = require('path');
+
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(public));
@@ -21,11 +23,10 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-// app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));
 
 // Import routes and give the server access to them. It poiints to our controller file.
 var routes = require("./controllers/burgers_controller.js");
-
 app.use('/', routes);
 
 // Start our server so that it can begin listening to client requests.
