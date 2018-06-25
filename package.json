@@ -24,5 +24,7 @@
     "method-override": "^2.3.10",
     "mysql": "^2.15.0",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }

@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 //import burger.js that uses ORM to modify the burger data
-var burger = require('../models/burger.js');
+var burger = require('../models/burger');
 
 router.get('/', function (req, res) {
     burger.all(function (data) {

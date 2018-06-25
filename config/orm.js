@@ -1,5 +1,5 @@
 //import (require) connection.js into orm.js
-var connection = require('./connection.js');
+var connection = require('../config/connection.js');
 
 //created methods that execute the MySQL commands in the controlllers - methods needed to retrieve and store data in database
 var orm = {
@@ -9,13 +9,13 @@ var orm = {
         connection.query(queryString, [tableInput], function (err, result) {
             if (err) throw err;
             cb(result);
-            console.log("LKJDSLKJDS");
+            console.log("HEY RESULT");
             console.log(result);
         });
     },
-    insert: function (tableInput, col1, col2, val1, val2) {
-        var queryString = 'INSERT INTO ?? (??,??) VALUES (?,?)';
-        connection.query(queryString, [tableInput, col1, col2, val1, val2], function (err) {
+    insert: function (tableInput, col1, col2, val1, val2, cb) {
+        var queryString = 'INSERT INTO ??(??,??) VALUES(?,?)';
+        connection.query(queryString, [table, col1, co2, val1, val2], function () {
             if (err) throw err;
         });
     },
